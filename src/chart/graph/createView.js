@@ -35,7 +35,8 @@ export default function (ecModel, api) {
     var viewList = [];
     ecModel.eachSeriesByType('graph', function (seriesModel) {
         var coordSysType = seriesModel.get('coordinateSystem');
-        if (!coordSysType || coordSysType === 'view') {
+        var frozeView = seriesModel.get('frozeView');
+        if (!coordSysType || (coordSysType === 'view' && !frozeView)) {
 
             var data = seriesModel.getData();
             var positions = data.mapArray(function (idx) {
