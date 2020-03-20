@@ -628,7 +628,7 @@ function buildAxisMajorTicks(axisBuilder, axisModel, opt) {
         }
     ), 'ticks');
 
-    for (let i = 0; i < ticksEls.length; i++) {
+    for (var i = 0; i < ticksEls.length; i++) {
         axisBuilder.group.add(ticksEls[i]);
     }
 
