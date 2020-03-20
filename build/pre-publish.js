@@ -74,6 +74,11 @@ module.exports = function () {
         outputPath: path.resolve(ecDir, 'index.simple.js'),
         preamble: preamble.js
     });
+    prePulishSrc({
+        inputPath: path.resolve(ecDir, 'echarts.custom.js'),
+        outputPath: path.resolve(ecDir, 'index.custom.js'),
+        preamble: preamble.js
+    });
 
     function transform({code, inputPath, outputPath}) {
         if (inputPath === path.resolve(ecDir, 'src/echarts.js')) {

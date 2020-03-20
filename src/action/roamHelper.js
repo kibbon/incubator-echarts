@@ -39,9 +39,12 @@ export function updateCenterAndZoom(
         view.setCenter(center);
     }
     if (zoom != null) {
+        var zoomLimit = zoomLimit || view.zoomLimit;
+        var zoomMax = Infinity;
+        var zoomMin = 0;
         if (zoomLimit) {
-            var zoomMin = zoomLimit.min || 0;
-            var zoomMax = zoomLimit.max || Infinity;
+            var zoomMin = zoomLimit.min || zoomMin;
+            var zoomMax = zoomLimit.max || zoomMax;
             zoom = Math.max(
                 Math.min(previousZoom * zoom, zoomMax),
                 zoomMin
@@ -57,12 +60,13 @@ export function updateCenterAndZoom(
 
         position[0] -= fixX;
         position[1] -= fixY;
-
-        view.updateTransform();
-        // Get the new center
-        var center = view.pointToData(point);
-        view.setCenter(center);
-        view.setZoom(zoom * previousZoom);
+        if (zoom <= zoomMax && zoom >= zoomMin) {
+            view.updateTransform();
+            // Get the new center
+            var center = view.pointToData(point);
+            view.setCenter(center);
+            view.setZoom(zoom * previousZoom);
+        }
     }
 
     return {
