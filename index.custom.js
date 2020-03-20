@@ -40,6 +40,10 @@ require("./lib/component/dataset");
 
 require("./lib/chart/graph");
 
+require("./lib/component/geo");
+
+require("./lib/component/singleAxis");
+
 require("./lib/component/graphic");
 
 require("./lib/component/toolbox");
