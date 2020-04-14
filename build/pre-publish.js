@@ -61,7 +61,7 @@ module.exports = function () {
 
     prePulishSrc({
         inputPath: path.resolve(ecDir, 'echarts.all.js'),
-        outputPath: path.resolve(ecDir, 'index.js'),
+        outputPath: path.resolve(ecDir, 'index.all.js'),
         preamble: preamble.js
     });
     prePulishSrc({
@@ -76,7 +76,7 @@ module.exports = function () {
     });
     prePulishSrc({
         inputPath: path.resolve(ecDir, 'echarts.custom.js'),
-        outputPath: path.resolve(ecDir, 'index.custom.js'),
+        outputPath: path.resolve(ecDir, 'index.js'),
         preamble: preamble.js
     });
 

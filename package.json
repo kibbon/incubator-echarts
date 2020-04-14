@@ -1,6 +1,7 @@
 {
   "name": "@byted/fastbot-echarts",
-  "version": "1.0.5",
+  "main": "src/index.js",
+  "version": "1.0.8",
   "description": "A powerful charting and visualization library for browser",
   "license": "Apache-2.0",
   "keywords": [
